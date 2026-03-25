@@ -18,7 +18,7 @@ import java.util.List;
         private Double price;
         private String owner;
         private String details;
-
+        private String imageUrl;
         // Getters & Setters
     }
 

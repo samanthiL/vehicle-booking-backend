@@ -24,4 +24,26 @@ public class VehicleService {
     public Vehicle getVehicleById(String id) {
         return vehicleRepository.findById(id).orElse(null);
     }
+
+    public Vehicle updateVehicle(String id, Vehicle vehicle) {
+        // Check if vehicle exists
+        Vehicle existingVehicle = vehicleRepository.findById(id).orElse(null);
+
+        if (existingVehicle == null) {
+            return null; // or throw exception
+        }
+
+        // Update fields
+        existingVehicle.setType(vehicle.getType());
+        existingVehicle.setName(vehicle.getName());
+        existingVehicle.setPrice(vehicle.getPrice());
+        existingVehicle.setOwner(vehicle.getOwner());
+        existingVehicle.setDetails(vehicle.getDetails());
+        existingVehicle.setImageUrl(vehicle.getImageUrl());
+
+        // Save updated vehicle
+        return vehicleRepository.save(existingVehicle);
+    }
+
+
 }

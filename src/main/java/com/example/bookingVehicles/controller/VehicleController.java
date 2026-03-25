@@ -31,4 +31,10 @@ public class VehicleController {
     public Vehicle getBooking(@PathVariable String id) {
         return vehicleService.getVehicleById(id);
     }
+
+    @PutMapping("/{id}")
+    public Vehicle updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
+        return vehicleService.updateVehicle(id, vehicle);
+    }
+
 }
